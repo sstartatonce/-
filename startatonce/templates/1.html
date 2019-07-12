@@ -1,0 +1,237 @@
+{#@author:卢文宇 数据预测#}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>预测分析</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap-css -->
+<link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!--// bootstrap-css -->
+<!-- css -->
+<link rel="stylesheet" href="/static/css/style.css" type="text/css" media="all" />
+<!--// css -->
+<!-- font-awesome icons -->
+<link href="/static/css/font-awesome.css" rel="stylesheet">
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+<script src="/static/js/echarts.js"></script>
+    <script src="/static/js/dataTool.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+	<!-- banner -->
+	<div class="banner about-banner">
+		<div class="header">
+			<div class="container">
+				<div class="header-left">
+					<div class="w3layouts-logo">
+						<h1>
+							<a href="/index/">共享单车数据分析</a>
+						</h1>
+					</div>
+				</div>
+
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<div class="header-bottom">
+			<div class="container">
+				<div class="top-nav">
+						<nav class="navbar navbar-default">
+
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li><a class="list-border" href="/home/">主页</a></li>
+									<li class=""><a href="#" class="dropdown-toggle hvr-bounce-to-bottom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">数据分析<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+ <li><a class="hvr-bounce-to-bottom" href="/conclude/">概要</a></li>
+											<li><a class="hvr-bounce-to-bottom" href="/usertype/">用户使用</a></li>
+											<li><a class="hvr-bounce-to-bottom" href="/weather/">天气</a></li>
+											<li><a class="hvr-bounce-to-bottom" href="/trip/">骑行时间</a></li>
+											<li><a class="hvr-bounce-to-bottom" href="/temperature/">温度</a></li>
+
+											<li><a class="hvr-bounce-to-bottom" href="/popularity/">站点人气</a></li>
+											<li><a class="hvr-bounce-to-bottom" href="/station/">克林顿街&华盛顿街站点</a></li>
+										</ul>
+									</li>
+									<li><li><a class="list-border1" href="/bikes/">远程数据</a></li>
+                                    <li><a class="active list-border1" href="/lookforward/">预测分析</a></li>
+								</ul>
+								<div class="clearfix"> </div>
+							</div>
+						</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //banner -->
+	<div class="about-heading">
+		<div class="container">
+			<h2>预测分析</h2>
+		</div>
+	</div>
+
+	<!--添加数据-->
+<div class="dropdown" style="position: relative;top:10px;left:100px">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
+            预测类型
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu " aria-labelledby="dropdownMenu1">
+            <li><a href="/1/">一周不同时间段的骑行需求</a></li>
+            <li><a href="/2/">不同骑行时长的车辆数量</a></li>
+        </ul>
+    </div>
+<br>
+    <br>
+    <center><div id="p1" style="width:1000px;height:618px;"></div></center>
+        <script type="text/javascript">
+            var myChart = echarts.init(document.getElementById('p1'));
+            var hours = ['12a', '1a', '2a', '3a', '4a', '5a', '6a',
+        '7a', '8a', '9a','10a','11a',
+        '12p', '1p', '2p', '3p', '4p', '5p',
+        '6p', '7p', '8p', '9p', '10p', '11p'];
+        var days = ['Saturday', 'Friday', 'Thursday',
+        'Wednesday', 'Tuesday', 'Monday', 'Sunday'];
+
+var data = [[0,0,5],[0,1,1],[0,2,0],[0,3,0],[0,4,0],[0,5,0],[0,6,0],[0,7,0],[0,8,0],[0,9,0],[0,10,0],[0,11,2],[0,12,4],[0,13,1],[0,14,1],[0,15,3],[0,16,4],[0,17,6],[0,18,4],[0,19,4],[0,20,3],[0,21,3],[0,22,2],[0,23,5],[1,0,7],[1,1,0],[1,2,0],[1,3,0],[1,4,0],[1,5,0],[1,6,0],[1,7,0],[1,8,0],[1,9,0],[1,10,5],[1,11,2],[1,12,2],[1,13,6],[1,14,9],[1,15,11],[1,16,6],[1,17,7],[1,18,8],[1,19,12],[1,20,5],[1,21,5],[1,22,7],[1,23,2],[2,0,1],[2,1,1],[2,2,0],[2,3,0],[2,4,0],[2,5,0],[2,6,0],[2,7,0],[2,8,0],[2,9,0],[2,10,3],[2,11,2],[2,12,1],[2,13,9],[2,14,8],[2,15,10],[2,16,6],[2,17,5],[2,18,5],[2,19,5],[2,20,7],[2,21,4],[2,22,2],[2,23,4],[3,0,7],[3,1,3],[3,2,0],[3,3,0],[3,4,0],[3,5,0],[3,6,0],[3,7,0],[3,8,1],[3,9,0],[3,10,5],[3,11,4],[3,12,7],[3,13,14],[3,14,13],[3,15,12],[3,16,9],[3,17,5],[3,18,5],[3,19,10],[3,20,6],[3,21,4],[3,22,4],[3,23,1],[4,0,1],[4,1,3],[4,2,0],[4,3,0],[4,4,0],[4,5,1],[4,6,0],[4,7,0],[4,8,0],[4,9,2],[4,10,4],[4,11,4],[4,12,2],[4,13,4],[4,14,4],[4,15,14],[4,16,12],[4,17,1],[4,18,8],[4,19,5],[4,20,3],[4,21,7],[4,22,3],[4,23,0],[5,0,2],[5,1,1],[5,2,0],[5,3,3],[5,4,0],[5,5,0],[5,6,0],[5,7,0],[5,8,2],[5,9,0],[5,10,4],[5,11,1],[5,12,5],[5,13,10],[5,14,5],[5,15,7],[5,16,11],[5,17,6],[5,18,0],[5,19,5],[5,20,3],[5,21,4],[5,22,2],[5,23,0],[6,0,1],[6,1,0],[6,2,0],[6,3,0],[6,4,0],[6,5,0],[6,6,0],[6,7,0],[6,8,0],[6,9,0],[6,10,1],[6,11,0],[6,12,2],[6,13,1],[6,14,3],[6,15,4],[6,16,0],[6,17,0],[6,18,0],[6,19,0],[6,20,1],[6,21,2],[6,22,2],[6,23,6]];
+option = {
+    title:{
+      text: '一周不同时间段的骑行需求',
+        x:'top'
+    },
+    tooltip: {},
+    visualMap: {
+        max: 20,
+        inRange: {
+            color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026']
+        }
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {
+                show: true,
+                type: ['pie', 'funnel']
+            },
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    xAxis3D: {
+        type: 'category',
+        data: hours
+    },
+    yAxis3D: {
+        type: 'category',
+        data: days
+    },
+    zAxis3D: {
+        type: 'value'
+    },
+    grid3D: {
+        boxWidth: 200,
+        boxDepth: 80,
+        viewControl: {
+            // projection: 'orthographic'
+        },
+        light: {
+            main: {
+                intensity: 1.2,
+                shadow: true
+            },
+            ambient: {
+                intensity: 0.3
+            }
+        }
+    },
+    series: [{
+        type: 'bar3D',
+        data: data.map(function (item) {
+            return {
+                value: [item[1], item[0], item[2]],
+            }
+        }),
+        shading: 'lambert',
+
+        label: {
+            textStyle: {
+                fontSize: 16,
+                borderWidth: 1
+            }
+        },
+
+        emphasis: {
+            label: {
+                textStyle: {
+                    fontSize: 20,
+                    color: '#900'
+                }
+            },
+            itemStyle: {
+                color: '#900'
+            }
+        }
+    }]
+};
+myChart.setOption(option);
+    </script>
+
+    <center><div style="width:650px;">
+
+    <div><p style="text-align: left;font-size: 15px">x轴：可选择一天中所需预测的时间点，如凌晨4点、早上八点、晚上八点等</p>
+    </div>
+    <div><p style="text-align: left;font-size: 15px">y轴：可选择一周中需要预测的一天</p>
+    </div>
+    <div><p style="text-align: left;font-size: 15px">z轴：共享单车需求量，即可读出某星期某时间点的共享单车需求量</p>
+    </div>
+
+    </div></center>
+
+
+
+<br/><br/>
+    <center><div style="width:1000px;">
+    <p style="text-align: left;font-size: 18px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从该图可以看到，骑行时段最高峰将在工作日下午3时左右，可达13辆;随后是中午、晚上，在7辆左右;上午8时左右几乎无使用量;此站点在下午会有大部分单车停靠，可集中维修处理；上午单车大多为使用状态，可进行站桩清洗维护工作。</p>
+    </div></center>
+        <br/><br/><br/>
+    <div class="copyright">
+        <div class = "container">
+			<p><h4>Copyright &copy;2019.Start At Once All rights reserved.</h4></p>
+	    </div>
+    </div>
+
+	<script src="/static/js/SmoothScroll.min.js"></script>
+	<script type="text/javascript" src="/static/js/move-top.js"></script>
+	<script type="text/javascript" src="/static/js/easing.js"></script>
+	<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			$().UItoTop({ easingType: 'easeOutQuart' });
+
+			});
+	</script>
+</body>
+</html>
