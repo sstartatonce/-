@@ -1,0 +1,300 @@
+{#@author:郭宇航 修改页面#}
+{#@author:卢文宇 Django处理#}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>主页</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap-css -->
+<link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!--// bootstrap-css -->
+<!-- css -->
+<link rel="stylesheet" href="/static/css/style.css" type="text/css" media="all" />
+<!--// css -->
+<!-- font-awesome icons -->
+<link href="/static/css/font-awesome.css" rel="stylesheet">
+<!-- //font-awesome icons -->
+<!-- font -->
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script> 
+<!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+	<div class="banner-top">
+		<div class="slider">
+			<div class="callbacks_container">
+				<ul class="rslides callbacks callbacks1" id="slider4">
+					<li>
+						<div class="w3layouts-banner-top">
+							<div class="container">
+								<div class="agileits-banner-info">
+									<br/>
+									<br/>
+									<br/>
+									<br/>
+									<br/>
+									<br/>
+									<br/>
+									<br/>
+
+								</div>	
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="w3layouts-banner-top w3layouts-banner-top1">
+							<div class="container">
+								<div class="agileits-banner-info">
+									<br/>
+									<br/>
+									<br/>
+									<br/>
+									<br/>
+									<br/>
+									<br/>
+									<br/>
+
+								</div>	
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="w3layouts-banner-top w3layouts-banner-top2">
+							<div class="container">
+								<div class="agileits-banner-info">
+									<br/>
+									<br/>
+									<br/>
+									<br/>
+									<br/>
+									<br/>
+									<br/>
+									<br/>
+
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="clearfix"> </div>
+			<script src="/static/js/responsiveslides.min.js"></script>
+			<script>
+						// You can also use "$(window).load(function() {"
+						$(function () {
+						  // Slideshow 4
+						  $("#slider4").responsiveSlides({
+							auto: true,
+							pager:true,
+							nav:true,
+							speed: 500,
+							namespace: "callbacks",
+							before: function () {
+							  $('.events').append("<li>before event fired.</li>");
+							},
+							after: function () {
+							  $('.events').append("<li>after event fired.</li>");
+							}
+						  });
+
+						});
+			</script>
+			<!--banner Slider starts Here-->
+		</div>
+	</div>
+
+	<!-- banner -->
+	<div class="banner">
+		<div class="header">
+			<div class="container">
+				<div class="header-left">
+					<div class="w3layouts-logo">
+						<h1>
+							<a href="/index/">共享单车数据分析</a>
+						</h1>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<div class="header-bottom">
+			<div class="container">
+				<div class="top-nav">
+						<nav class="navbar navbar-default">
+								<div class="navbar-header">
+									<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+										<span class="sr-only">Toggle navigation</span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</button>
+								</div>
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<center><div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li><a class="active list-border" href="/home/">主页</a></li>
+
+									<li class=""><a href="#" class="dropdown-toggle hvr-bounce-to-bottom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">数据分析<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+                                            <li><a class="hvr-bounce-to-bottom" href="/conclude/">概要</a></li>
+                                            <li><a class="hvr-bounce-to-bottom" href="/usertype/">用户使用</a></li>
+											<li><a class="hvr-bounce-to-bottom" href="/weather/">天气</a></li>
+											<li><a class="hvr-bounce-to-bottom" href="/trip/">骑行时间</a></li>
+											<li><a class="hvr-bounce-to-bottom" href="/temperature/">温度</a></li>
+
+											<li><a class="hvr-bounce-to-bottom" href="/popularity/">站点人气</a></li>
+											<li><a class="hvr-bounce-to-bottom" href="/station/">克林顿街&华盛顿街站点</a></li>
+										</ul>
+									</li>
+
+									<li><a class="list-border1" href="/bikes/">远程数据</a></li>
+                                    <li><a class="list-border1" href="/lookforward/">预测分析</a></li>
+								</ul>
+								<div class="clearfix"> </div>
+							</div></center>
+						</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //banner -->
+	<!-- welcome -->
+	<div class="welcome">
+		<div class="container">
+			<div class="w3-welcome-grids">
+				<div class="col-md-5 w3l-welcome-left">
+					<h2><span>共享单车</span></h2>
+					<p>这是一种比步行快，比出租车便宜，比地铁更有趣的出行方式。</p>
+					<br/>
+					<br/>
+					<br/>
+
+				</div>
+				<div class="col-md-7 w3l-welcome-right">
+					<div class="w3l-welcome-right-grids">
+						<div class="col-sm-5 w3l-welcome-right-img">
+							<img src="/static/images/wao4.jpg" alt="" />
+						</div>
+						<div class="col-sm-7 w3l-welcome-right-img1">
+							<img src="/static/images/wao2.jpg" alt="" />
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!-- //welcome -->
+    <br>
+    <br>
+    <br>
+	<!-- services -->
+	<div class="services">
+		<div class="container">
+			<div class="agileits-services-grids">
+				<div class="col-md-4 agileinfo-services-left">
+					<<h3>自行车 <span>共享</span></h3>
+					<p>作为一种新的共享出行方式，它以其灵活性、方便性、低碳、环保、经济节能等优点在中国许多城市出现。</p>
+				</div>
+				<div class="col-md-8 agileinfo-services-right">
+					<div class="col-md-6 w3-agileits-services-grid">
+						<i class="fa fa-cogs" aria-hidden="true"></i>
+						<h4>环境</h4>
+						<p>它可以减少污染。绿色出行可以减少二氧化碳排放，减少汽车使用可以减少城市空气污染。 </p>
+					</div>
+					<div class="col-md-6 w3-agileits-services-grid agile-services1">
+						<i class="fa fa-comments" aria-hidden="true"></i>
+						<h4>骑行</h4>
+						<p>它不仅解决了交通共享的“神经末梢”，而且解决了城市的“最后一公里”问题。</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!-- //services -->
+	<!-- news -->
+	<div class="news">
+		<div class="container">
+			<div class="wthree-news-grids">
+				<div class="col-md-4 agileinfo-services-left agile-news-left">
+					<h3>Start<span>At Once</span></h3>
+					<p>通过分析芝加哥Divvy bikes用户的出行特征，预测共享自行车的借用需求，确定了车站自行车的调度数量，为下一步的车辆调度奠定了基础。</p>
+				</div>
+				<div class="col-md-8 agile-news-right">
+					<div class="col-md-6 agile-news-right-info">
+						<div class="col-md-6 agile-news-img">
+
+						</div>
+						<div class="col-md-6 agile-news-img-info">
+							<!--<h5><a href="single.html">Lorem ipsum dolor</a></h5>-->
+							<div class="agileits-w3layouts-border"> </div>
+							<p>在大数据环境下,采用Python语言编写程序,实现了对海量的共享单车用户出行信息获取，进行的数据采集、处理、分析和可视化展示。</p>
+							<h6><i class="fa fa-calendar" aria-hidden="true"></i> 2019-07-13</h6>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="col-md-6 agile-news-right-info">
+						<div class="col-md-6 agile-news-img agile-news-img1">
+
+						</div>
+						<div class="col-md-6 agile-news-img-info">
+							<!--<h5><a href="single.html">Lorem ipsum dolor</a></h5>-->
+							<div class="agileits-w3layouts-border"> </div>
+							<p>用不同地段、不同时段共享单车移动趋势和骑行偏好,了解城市单车的数量位置和移动规律,预测用车高峰地点与时段,以做好高效管理。</p>
+							<h6><i class="fa fa-calendar" aria-hidden="true"></i> 2019-07-13</h6>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!-- //news -->
+	<!-- footer -->
+<div class="copyright">
+        <div class = "container">
+			<p><h4>Copyright &copy;2019.Start At Once All rights reserved.</h4></p>
+	    </div>
+    </div>
+	<!-- //copyright -->
+	<script src="/static/js/responsiveslides.min.js"></script>
+	<script src="/static/js/SmoothScroll.min.js"></script>
+	<script type="text/javascript" src="/static/js/move-top.js"></script>
+	<script type="text/javascript" src="/static/js/easing.js"></script>
+	<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear'
+				};
+			*/
+
+			$().UItoTop({ easingType: 'easeOutQuart' });
+
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+</body>
+</html>

@@ -1,0 +1,240 @@
+{#@author:郭宇航 数据分析展示#}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>温度</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap-css -->
+<link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!--// bootstrap-css -->
+<!-- css -->
+<link rel="stylesheet" href="/static/css/style.css" type="text/css" media="all" />
+<!--// css -->
+<!-- font-awesome icons -->
+<link href="/static/css/font-awesome.css" rel="stylesheet">
+<!-- //font-awesome icons -->
+<!-- font -->
+<!--<link href="http://fonts.googleapis.com/css?family=Playball&amp;subset=latin-ext" rel="stylesheet">
+<link href="http://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>-->
+<!-- //font -->
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+<script src="/static/js/echarts.js"></script>
+<script src="/static/js/dataTool.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script> 
+<!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+<![endif]-->
+</head>
+	<!-- banner -->
+	<div class="banner about-banner">
+		<div class="header">
+			<div class="container">
+				<div class="header-left">
+					<div class="w3layouts-logo">
+						<h1>
+							<a href="/index/">共享单车数据分析</a>
+						</h1>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<div class="header-bottom">
+			<div class="container">
+				<div class="top-nav">
+						<nav class="navbar navbar-default">
+								<div class="navbar-header">
+									<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+										<span class="sr-only">Toggle navigation</span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</button>
+								</div>
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li><a class="list-border" href="/home/">主页</a></li>
+									<li class=""><a href="#" class="active dropdown-toggle hvr-bounce-to-bottom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">数据分析<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+                                            <li><a class="hvr-bounce-to-bottom" href="/conclude/">概要</a></li>
+											<li><a class="hvr-bounce-to-bottom" href="/usertype/">用户使用</a></li>
+											<li><a class="hvr-bounce-to-bottom" href="/weather/">天气</a></li>
+											<li><a class="hvr-bounce-to-bottom" href="/trip/">骑行时间</a></li>
+											<li><a class="hvr-bounce-to-bottom" href="/temperature/">温度</a></li>
+
+											<li><a class="hvr-bounce-to-bottom" href="/popularity/">站点人气</a></li>
+											<li><a class="hvr-bounce-to-bottom" href="/station/">克林顿街&华盛顿街站点</a></li>
+										</ul>
+									</li>
+									<li><li><a class="list-border1" href="/bikes/">远程数据</a></li>
+                                    <li><a class="list-border1" href="/lookforward/">预测分析</a></li>
+
+								</ul>	
+								<div class="clearfix"> </div>
+							</div>	
+						</nav>		
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //banner -->
+	<div class="about-heading">	
+		<div class="container">
+			<h2>温度</h2>
+		</div>
+	</div>
+<br><br>
+<center><div id="t1" style="width:750px;height:500px;"></div></center>
+        <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('t1'));
+        var option={
+                title:{
+                   text:'温度对骑行次数的影响'
+                },
+                tooltip:{},
+                legend:{
+                    data:['骑行次数']
+                },
+                xAxis:{
+                    data:[1,1.9,3.0,3.9,5,6.1,9.0,10.0,10.9,12.0,15.1,17.1,18,21,21.9,23.0,24.1,28.9,33.1,33.8,35.1,
+                                   37.9,41.0,43.0,44.1,45.0,46.0,46.4,46.9,48,48.2,48.9,50,51.1,51.8,52,53.1,54,55,55.9,57,57.9,
+                                 59,60.1,60.8,61,62.1,62.6,63,64,64.9,66,66.9,68,69.1,70,71.1,72,73,73.4,75,75.9,77,79,81,82,
+                                    82.9,84,84.2,84.9,86,87.1]
+                },
+             toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {
+                show: true,
+                type: ['pie', 'funnel']
+            },
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+                yAxis: {},
+                series: [{
+                    name: '骑行次数',
+                    type: 'bar',
+                    data:[58,132,6,46,45,139,116,52,26,103,103,150,81,20,54,263,346,27,66,20,225,164,83,91,109,173,
+                        504,51,1206,374,94,910,544,393,37,53,724,236,434,22,264,369,402,780,144,650,709,309,17,806,
+                        463,140,809,33,170,518,1108,235,113,478,268,138,589,389,186,1022,147,202,115,448,317,44]
+                }]
+            };
+myChart.setOption(option);
+    </script>
+
+<center><div id="t2" style="width:750px;height:500px;"></div></center>
+        <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('t2'));
+        var data=echarts.dataTool.prepareBoxplotData([
+           [1,1.9,3.0,3.9,5,6.1,9.0,10.0,10.9,12.0,15.1,17.1,18,21,21.9,23.0,24.1,28.9,33.1,33.8,35.1,
+                                   37.9,41.0,43.0,44.1,45.0,46.0,46.4,46.9,48,48.2,48.9,50,51.1,51.8,52,53.1,54,55,55.9,57,57.9,
+                                 59,60.1,60.8,61,62.1,62.6,63,64,64.9,66,66.9,68,69.1,70,71.1,72,73,73.4,75,75.9,77,79,81,82,
+                                    82.9,84,84.2,84.9,86,87.1]
+       ])
+        //指定图表的配置项和数据
+        var option={
+                title:{
+                   text:'温度的箱线图',
+                   x:'left',
+            },
+                tooltip:{},
+                grid:{
+                    left:'10%',
+                    right:'10%',
+                    bottom:'15%'
+                },
+                legend:{},
+                xAxis:{
+                    data:['温度']
+            },
+            color:['#ffb200'],
+            toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {
+                show: true,
+                type: ['pie', 'funnel']
+            },
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+                yAxis: {},
+                series: [{
+
+                    type: 'boxplot',
+                    data: data.boxData,
+                    itemStyle:{color: '#ffb200'},
+            }]
+            };
+    myChart.setOption(option);
+    </script>
+
+	<!--添加数据-->
+   <br/>
+     <HR align=center width=750px; color=#000000 SIZE=15>
+<center><div style="width:750px;">
+<h3 style="text-align: left;font-family: 宋体">分析结论:</h3>
+    <div><p style="text-align: left;font-size: 18px">1.随着温度的升高，骑行频率也会升高，当温度升高到一定程度时，骑行频率会降低。</p>
+    </div>
+    <div><p style="text-align: left;font-size: 18px">2.通过箱线图，我们知道骑行温度中位数为52.55华氏度，四分位数分别为32.05华氏度和68.275华氏度。最小，大值分别为1，87.1华氏度。</p>
+    </div>
+</div></center>
+
+<HR align=center width=750px; color=#000000 SIZE=15>
+    <center><div style="width:750px;">
+    <h3 style="text-align: left;font-family: 宋体">配置建议:</h3>
+    <div><p style="text-align: left;font-size: 18px">1.调配车辆考虑温度上升阶段,适当增加车辆调配。</p>
+    </div>
+    <div><p style="text-align: left;font-size: 18px">2.维修和回收车辆考虑温度下降的因素。</p>
+    </div>
+    </div></center>
+<HR align=center width=750px; color=#000000 SIZE=15>
+<br/><br/><br/>
+	<!-- //copyright -->
+<div class="copyright">
+        <div class = "container">
+			<p><h4>Copyright &copy;2019.Start At Once All rights reserved.</h4></p>
+	    </div>
+    </div>
+	<script src="/static/js/SmoothScroll.min.js"></script>
+	<script type="text/javascript" src="/static/js/move-top.js"></script>
+	<script type="text/javascript" src="/static/js/easing.js"></script>
+	<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+	<!-- //here ends scrolling icon -->
+</body>	
+</html>

@@ -1,0 +1,138 @@
+{#@author:郭宇航 数据分析展示#}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>概要</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap-css -->
+<link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!--// bootstrap-css -->
+<!-- css -->
+<link rel="stylesheet" href="/static/css/style.css" type="text/css" media="all" />
+<!--// css -->
+<!-- font-awesome icons -->
+<link href="/static/css/font-awesome.css" rel="stylesheet">
+<!-- //font-awesome icons -->
+<!-- font -->
+<!--<link href="http://fonts.googleapis.com/css?family=Playball&amp;subset=latin-ext" rel="stylesheet">
+<link href="http://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>-->
+<!-- //font -->
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+	<!-- banner -->
+	<div class="banner about-banner">
+		<div class="header">
+			<div class="container">
+				<div class="header-left">
+					<div class="w3layouts-logo">
+						<h1>
+							<a href="/index/">共享单车数据分析</a>
+						</h1>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<div class="header-bottom">
+			<div class="container">
+				<div class="top-nav">
+						<nav class="navbar navbar-default">
+								<div class="navbar-header">
+									<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+										<span class="sr-only">Toggle navigation</span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</button>
+								</div>
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li><a class="list-border" href="/home/">主页</a></li>
+									<li class=""><a href="#" class="active dropdown-toggle hvr-bounce-to-bottom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">数据分析<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+                                            <li><a class="hvr-bounce-to-bottom" href="/conclude/">概要</a></li>
+											<li><a class="hvr-bounce-to-bottom" href="/usertype/">用户使用</a></li>
+											<li><a class="hvr-bounce-to-bottom" href="/weather/">天气</a></li>
+											<li><a class="hvr-bounce-to-bottom" href="/trip/">骑行时间</a></li>
+											<li><a class="hvr-bounce-to-bottom" href="/temperature/">温度</a></li>
+
+											<li><a class="hvr-bounce-to-bottom" href="/popularity/">站点人气</a></li>
+											<li><a class="hvr-bounce-to-bottom" href="/station/">克林顿街&华盛顿街站点</a></li>
+										</ul>
+									</li>
+									<li><li><a class="list-border1" href="/bikes/">远程数据</a></li>
+                                    <li><a class="list-border1" href="/lookforward/">预测分析</a></li>
+
+								</ul>
+								<div class="clearfix"> </div>
+							</div>
+						</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //banner -->
+	<div class="about-heading">
+		<div class="container">
+			<h2>共享单车站点数据分析概要</h2>
+		</div>
+	</div>
+    <br>
+    <br/>
+   <center><img src="/static/images/co1.png" /><center>
+       <div class="about-heading">
+		<div class="container">
+			<h2>待解决的问题</h2>
+		</div>
+	</div>
+       <br>
+    <br/>
+       <center><img src="/static/images/co.png" /><center>
+<!-- //copyright -->
+
+    <div class="copyright">
+        <div class = "container">
+			<p><h4>Copyright &copy;2019.Start At Once All rights reserved.</h4></p>
+	    </div>
+    </div>
+
+	<script src="/static/js/SmoothScroll.min.js"></script>
+	<script type="text/javascript" src="/static/js/move-top.js"></script>
+	<script type="text/javascript" src="/static/js/easing.js"></script>
+	<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear'
+				};
+			*/
+
+			$().UItoTop({ easingType: 'easeOutQuart' });
+
+			});
+	</script>
+	<!-- //here ends scrolling icon -->
+</body>
+</html>

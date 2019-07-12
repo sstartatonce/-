@@ -1,0 +1,241 @@
+{#@author:安淦毓 数据分析展示#}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>克林顿街&华盛顿街站点</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap-css -->
+<link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!--// bootstrap-css -->
+<!-- css -->
+<link rel="stylesheet" href="/static/css/style.css" type="text/css" media="all" />
+<!--// css -->
+<!-- font-awesome icons -->
+<link href="/static/css/font-awesome.css" rel="stylesheet">
+<!-- //font-awesome icons -->
+<!-- font -->
+<!--<link href="http://fonts.googleapis.com/css?family=Playball&amp;subset=latin-ext" rel="stylesheet">
+<link href="http://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>-->
+<!-- //font -->
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+    <script src="/static/js/dataTool.js"></script>
+    <script src="/static/js/echarts.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script> 
+<!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+	<!-- banner -->
+	<div class="banner about-banner">
+		<div class="header">
+			<div class="container">
+				<div class="header-left">
+					<div class="w3layouts-logo">
+						<h1>
+							<a href="/index/">共享单车数据分析</a>
+						</h1>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<div class="header-bottom">
+			<div class="container">
+				<div class="top-nav">
+						<nav class="navbar navbar-default">
+								<div class="navbar-header">
+									<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+										<span class="sr-only">Toggle navigation</span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</button>
+								</div>
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li><a class="list-border" href="/home/">主页</a></li>
+									<li class=""><a href="#" class="active dropdown-toggle hvr-bounce-to-bottom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">数据分析<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+                                            <li><a class="hvr-bounce-to-bottom" href="/conclude/">概要</a></li>
+											<li><a class="hvr-bounce-to-bottom" href="/usertype/">用户使用</a></li>
+											<li><a class="hvr-bounce-to-bottom" href="/weather/">天气</a></li>
+											<li><a class="hvr-bounce-to-bottom" href="/trip/">骑行时间</a></li>
+											<li><a class="hvr-bounce-to-bottom" href="/temperature/">温度</a></li>
+
+											<li><a class="hvr-bounce-to-bottom" href="/popularity/">站点人气</a></li>
+											<li><a class="hvr-bounce-to-bottom" href="/station/">克林顿街&华盛顿街站点</a></li>
+										</ul>
+									</li>
+									<li><li><a class="list-border1" href="/bikes/">远程数据</a></li>
+                                    <li><a class="list-border1" href="/lookforward/">预测分析</a></li>
+
+								</ul>	
+								<div class="clearfix"> </div>
+							</div>	
+						</nav>		
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //banner -->
+	<div class="about-heading">	
+		<div class="container">
+			<h2>克林顿街&华盛顿街站点</h2>
+		</div>
+	</div>
+    <br>
+    <br>
+<center><div id="s1" style="width:1000px;height:600px;"></div></center>
+        <script type="text/javascript">
+            var myChart = echarts.init(document.getElementById('s1'));
+            //指定图表的配置项和数据
+        var option={
+                title:{
+                   text:'一周内克林顿街&华盛顿街站点骑行次数'
+                },
+            toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {
+                show: true,
+                type: ['pie', 'funnel']
+            },
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+                color:['#70e6f3'],
+                tooltip:{},
+                legend:{
+                    data:['骑行次数']
+                },
+                xAxis:{
+                    data:["周日","周一","周二","周三","周四","周五","周六"]
+                },
+                yAxis: { type : 'value'},
+                series: [{
+                    name: '骑行次数',
+                    type: 'bar',
+                    data:[3453, 2668, 2234, 2526, 3512, 4634, 4425]
+                }]
+            };
+myChart.setOption(option);
+    </script>
+    <br><br>
+    <center><div id="s2" style="width:1000px;height:600px;"></div></center>
+        <script type="text/javascript">
+            var myChart = echarts.init(document.getElementById('s2'));
+            option = {
+    title: {
+        text: '一天内克林顿街&华盛顿街站点骑行次数'
+
+    },
+                color:['#ffbdc6'],
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {
+                show: true,
+                type: ['pie', 'funnel']
+            },
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : ['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'骑车数量',
+            type:'line',
+            smooth:true,
+            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+            data:[156, 89, 45, 43, 46, 201, 711, 1825, 2809, 1595, 915, 1213, 765, 725, 369, 333, 517, 1024, 2396, 1454, 1468, 1007, 554, 402],
+        }]
+};
+    myChart.setOption(option);
+    </script>
+
+ <br /> <br />
+    <HR align=center width=750px; color=#000000 SIZE=15>
+    <center><div style="width:750px;">
+ <h3 style="text-align: left;font-family: 宋体">分析结论:</h3>
+    <div><p style="text-align: left;font-size: 18px">1.克林顿街&华盛顿街站点在周六周日不太受欢迎，但在周二非常受欢迎。</p>
+    </div>
+    <div><p style="text-align: left;font-size: 18px">2.从上午8点到下午6点是克林顿街&华盛顿街站点骑行的高峰期。</p>
+    </div>
+    </div></center>
+
+    <HR align=center width=750px; color=#000000 SIZE=15>
+
+    <center><div style="width:750px;">
+    <h3 style="text-align: left;font-family: 宋体">配置建议:</h3>
+    <div><p style="text-align: left;font-size: 18px">1.克林顿街&华盛顿街站点在调配车辆时，鉴于一天的使用高峰，应提前预备好车辆，避免出现供不应求的现象。</p>
+    </div>
+    <div><p style="text-align: left;font-size: 18px">2.克林顿街&华盛顿街站点在调配车辆时，考虑到一周中周六周日用车量递减，应做好维修回收车辆工作，及时回收损坏车辆以及"僵尸"车。</p>
+    </div>
+    </div></center>
+
+    <HR align=center width=750px; color=#000000 SIZE=15>
+    <br/><br/><br/>
+
+    <!-- 底部结束 -->
+
+										   
+
+
+
+
+	<!-- //copyright -->
+    <div class="copyright">
+        <div class = "container">
+			<p><h4>Copyright &copy;2019.Start At Once All rights reserved.</h4></p>
+	    </div>
+    </div>
+	<script src="/static/js/SmoothScroll.min.js"></script>
+	<script type="text/javascript" src="/static/js/move-top.js"></script>
+	<script type="text/javascript" src="/static/js/easing.js"></script>
+	<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+	<!-- //here ends scrolling icon -->
+</body>	
+</html>
