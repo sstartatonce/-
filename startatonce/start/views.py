@@ -4,6 +4,9 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render_to_response
 import datetime
 from distutils.command import register
+import pymysql
+from start import models
+from django.core import paginator
 #from django.core.urlresolvers import reverse
 # Create your views here.
 def index(request):
@@ -27,21 +30,13 @@ def trip(request):
 
 def home(request):
     return render(request,'index.html')
-def remote(request):
-    return render(request,'remote-data.html')
-def bikes(request):
-    return render(request,'bikes.html')
-def lookfoward(request):
-    return render(request,'lookforward.html')
-def a(request):
-    return render(request,'1.html')
-def b(request):
-    return render(request,'2.html')
-def c(request):
-    return render(request,'3.html')
-def d(request):
-    return render(request,'4.html')
-def e(request):
-    return render(request,'5.html')
-def conclude(request):
-    return render(request,'conclude.html')
+
+def table(request):
+    return render(request,'table.html')
+def my_view(request):
+    if request.method == 'GET':
+        response=HttpResponseRedirect('/table/')
+        return response
+def my_table(request):
+    if request.method=='GET':
+        return render(request,'table.html',{{tripduration}})
